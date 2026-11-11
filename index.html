@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>11:11</title>
+  <meta name="description" content="في حاجة حلوة مستنياكي">
+  <meta name="theme-color" content="#111A2C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient background: gradient + particle canvas -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-glow bg-glow--burgundy"></div>
+    <div class="bg-glow bg-glow--navy"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <main class="app" id="app">
+
+    <!-- ===== Screen 1 : Password lock ===== -->
+    <section class="screen is-active" id="screen-lock" data-screen="lock">
+      <h1 class="brand" lang="en">11:11</h1>
+
+      <div class="lock-stage" id="lock-stage">
+        <!-- Three.js padlock is mounted here by lock.js -->
+        <div class="lock-fallback" id="lock-fallback" aria-hidden="true">
+          <div class="lock-shackle" id="lock-shackle"></div>
+          <div class="lock-body" id="lock-body">
+            <span class="lock-keyhole"></span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="heading ar">في حاجة حلوة مستنياكي</h2>
+      <p class="subtitle ar">بس الأول… افتحي القفل</p>
+
+      <form class="unlock-form" id="unlock-form" autocomplete="off">
+        <label class="sr-only" for="password">كلمة السر</label>
+        <input
+          id="password"
+          name="password"
+          class="pw-input"
+          type="password"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="12"
+          placeholder="••••••"
+          dir="ltr"
+        >
+        <button type="submit" class="unlock-btn ar" id="unlock-btn">
+          <span>افتحي</span>
+        </button>
+        <p class="error ar" id="lock-error" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- ===== Screen 2 : The flying letter ===== -->
+    <section class="screen" id="screen-letter" data-screen="letter">
+      <div class="letter-stage" id="letter-stage">
+        <!-- Three.js envelope is mounted here by envelope.js -->
+        <div class="env-fallback" id="env-fallback" hidden>
+          <div class="env" id="env-css">
+            <div class="env-back"></div>
+            <div class="env-flap" id="env-flap"></div>
+            <div class="env-front">
+              <span class="env-detail" lang="en">11:11</span>
+            </div>
+            <div class="env-seal" id="env-seal-css"><span>♥</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="letter-caption ar" id="letter-caption">في جواب صغير… بس جواه حب كبير</p>
+      <p class="letter-hint ar" id="letter-hint">حاولي تلمسيه</p>
+    </section>
+
+    <!-- ===== Screen 3 : The prayer letter ===== -->
+    <section class="screen" id="screen-prayer" data-screen="prayer">
+      <article class="paper" id="paper">
+        <h2 class="paper-title ar">لأجمل أم في الدنيا</h2>
+        <div class="paper-body ar">
+          <p>ربنا يفتحلك كل أبواب الخير، ويكتبلك التوفيق في كل خطوة، ويكرمك فوق ما تتمني، ويجبر بخاطرك جبرًا يليق بقلبك الجميل.</p>
+          <p>يا رب كل تعب تعبتيه يتحول لفرحة، وكل دعوة في قلبك تلاقي طريقها للإجابة، ويرزقك راحة البال وطمأنينة القلب والصحة والستر.</p>
+          <p>ويبعد عنك كل هم وحزن، ويجعل أيامك كلها خير وبركة.</p>
+          <p>ربنا يبارك في عمرك، ويحفظك لينا، ويفرح قلبك زي ما طول عمرك بتحاولي تفرّحي قلوبنا.</p>
+          <p>ربنا يكرمك ويوفقك ويسعدك دايمًا يا أمي. بحبك قد الدنيا كلها. 🤍</p>
+        </div>
+        <p class="signature ar">من قلب بيحبك ♡</p>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Libraries: pinned CDN builds. If either fails, the site falls back gracefully. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script src="js/lock.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
